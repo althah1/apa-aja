@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IlmuQuest - Landing Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+    <style>
+        :root {
+            background: linear-gradient(135deg, #2D1B69, #1A103C, #4A2FAD);
+            --gold: #D4AF37;
+            --light-gold: #F4E4A9;
+            --white: #FFFFFF;
+            --gray: #E5E5E5;
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== LANDING PAGE STYLES ===== */
+        .text-1, .text-2, .text-3, .text-4 {
+            text-align: center;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-1 {
+            font-size: 2.5rem;
+            margin-top: 15vh;
+            color: var(--light-gold);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .text-2 {
+            font-size: 4rem;
+            margin-top: 1rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            position: relative;
+        }
+
+        .text-2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .text-3 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            color: var(--white);
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .text-3 .typing {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .text-4 {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            color: var(--light-gold);
+            font-style: italic;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .go {
+            text-align: center;
+            margin-top: 5rem;
+            animation: fadeIn 1s ease-out 1.2s both;
+        }
+
+        .go a {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
+            color: var(--dark-purple);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .go a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .go a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .go a:hover::before {
+            left: 100%;
+        }
+
+        /* ===== LOGIN & SIGNUP PAGE STYLES ===== */
+        .container {
+            max-width: 450px;
+            margin: 10vh auto;
+            padding: 40px 30px;
+            background: rgba(26, 16, 60, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--light-purple), var(--gold));
+        }
+
+        .text-5 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 15px 20px;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        input[type="text"]::placeholder, input[type="password"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        input[type="button"]:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .go-2 {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .go-2 a {
+            color: var(--light-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .go-2 a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== BACKGROUND DECORATIONS ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(74, 47, 173, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(26, 16, 60, 0.2) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .text-1 { font-size: 2rem; }
+            .text-2 { font-size: 3rem; }
+            .text-3 { font-size: 1.5rem; }
+            .text-4 { font-size: 1.2rem; }
+            
+            .container {
+                margin: 5vh 20px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="text-1">Welcome To</div>
+    <div class="text-2">Intelligient Query</div>
+    <div class="text-3">letz <span class="typing"></span></div>
+    <div class="text-4">learn while exploring</div>
+    <div class="go"><a href="index1.html">Login</a></div>
+
+    <script src="letz.js"></script>
+</body>
+</html>
