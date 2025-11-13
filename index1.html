@@ -8,6 +8,208 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+    <style>
+        /* Style.css */
+
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #2D1B69, #1A103C, #4A2FAD);
+  color: #f2e6d9; /* Soft gold */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+/* Container for forms */
+.container {
+  background: rgba(38, 0, 69, 0.9); /* dark purple translucent */
+  border-radius: 18px;
+  width: 360px;
+  padding: 40px 35px 50px;
+  box-shadow: 0 8px 25px rgba(155, 89, 182, 0.6);
+  border: 2px solid #c9a94b;
+  backdrop-filter: blur(12px);
+}
+
+/* Text styles for landing page and forms */
+.text-1, .text-2, .text-3, .text-4,
+.text-5 {
+  font-weight: 700;
+  color: #c9a94b; /* Metallic Gold */
+  text-shadow:
+    0 0 5px #f0e68c,
+    0 0 15px #c9a94b,
+    0 0 25px #d4af37;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  font-family: 'Cinzel', serif; /* Elegant serif font */
+}
+
+.text-1 {
+  font-size: 2.1rem;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.text-2 {
+  font-size: 2.7rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.text-3 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.text-4 {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #d8c46f;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.06em;
+}
+
+.text-5 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #c9a94b;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  background: #3a1a5c; /* deep purple */
+  border: 1.5px solid #c9a94b;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  color: #f0e6c8;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+  outline: none;
+  box-shadow: inset 0 0 8px #a88c3c;
+  font-weight: 600;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #d9c882;
+  font-weight: 400;
+}
+
+/* On focus effect */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #e9d44d;
+  background: #5a3d94;
+  color: #fff;
+  box-shadow: 0 0 12px #d4af37;
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+/* Show/Hide button styling */
+input[type="button"]#show,
+input[type="button"]#hide {
+  flex: 1;
+  background: #6e4a97;
+  border: 1.8px solid #c9a94b;
+  color: #f4e79b;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  padding: 12px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 8px #ad8c22;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+input[type="button"]#show:hover,
+input[type="button"]#hide:hover {
+  background: #bdaa5d;
+  color: #3e2e00;
+  box-shadow: 0 0 16px #f0d553;
+  transform: scale(1.05);
+}
+
+/* Links buttons for navigation */
+.go a, .go-2 a {
+  display: inline-block;
+  text-decoration: none;
+  color: #d4af37;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.go a:hover, .go-2 a:hover {
+  color: #fff3b0;
+  border-bottom: 1.5px solid #fff3b0;
+}
+
+/* Go button container */
+.go {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.go-2 {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #d4c67a;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* Landing page special styles */
+.text-3 .typing {
+  color: #ffdd57;
+  font-weight: 700;
+  text-shadow:
+    0 0 15px #ffd700,
+    0 0 30px #c9a94b,
+    0 0 40px #e6c45e;
+}
+
+/* Responsive adjustment */
+@media (max-width: 400px) {
+  .container {
+    width: 90vw;
+    padding: 30px 20px 40px;
+  }
+  
+  .text-1, .text-2, .text-3, .text-4, .text-5 {
+    font-size: clamp(1.3rem, 4vw, 2rem);
+  }
+}
+    </style>
 <body>
     <div class="container"> 
     <div class="text-5">LOGIN</div>
